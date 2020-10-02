@@ -1,0 +1,7 @@
+//Directorios
+bin/*
+obj/*
+
+//Archivos
+TiendaMas.csproj
+Uml.drawio
