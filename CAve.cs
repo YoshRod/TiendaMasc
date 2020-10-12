@@ -4,9 +4,21 @@ namespace TiendaMas
 {
   public class CAve : CAnimal
   {
+    public static int id;
+
     public CAve()
     {
       Tipo = 3;
+      IncrementaId();
+    }
+
+    /// <summary>
+    /// Incrementa la cuenta de objetos creados.
+    /// </summary>
+    private void IncrementaId()
+    {
+      id = id + 1;
+      Id = id;
     }
 
     public override void MostarDatos()

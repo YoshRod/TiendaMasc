@@ -2,11 +2,20 @@ using System;
 
 namespace TiendaMas
 {
+
   public class CPerro : CAnimal
   {
+    public static int id;
     public CPerro()
     {
       Tipo = 1;
+      IncrementaId();
+    }
+
+    private void IncrementaId()
+    {
+      id = id + 1;
+      Id = id;
     }
 
     public override void MostarDatos()
