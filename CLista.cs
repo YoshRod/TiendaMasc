@@ -214,6 +214,26 @@ namespace TiendaMas
 
       return cantidad;
     }
+
+     //FIXME: Consulta que es esto.
+        public int this[int indice]
+        {
+            get
+            {
+                trabajo = ObtenerPorIndice(indice);
+                return trabajo.Id;
+            }
+            set
+            {
+                trabajo = ObtenerPorIndice(indice);
+                if (trabajo != null)
+                {
+                    trabajo.Id = value;
+                }
+            }
+        }
+
+      //FIXME: No esta funcionando.
       public void MuestraAnimal(int id)
     {
       trabajo = ancla;
