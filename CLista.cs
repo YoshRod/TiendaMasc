@@ -50,6 +50,7 @@ namespace TiendaMas
 
       CNodo nuevo = new CNodo();
       nuevo.Id = IncrementaId();
+      nuevo.Mascota=mascota;
       trabajo.Siguiente = nuevo;
     }
 
@@ -234,7 +235,7 @@ namespace TiendaMas
         }
 
       //FIXME: No esta funcionando.
-      public void MuestraAnimal(int id)
+      public CAnimal MuestraAnimal(int id)
     {
       trabajo = ancla;
 
@@ -242,12 +243,12 @@ namespace TiendaMas
       {
         trabajo = trabajo.Siguiente;
         if(id==trabajo.Id){
-        Console.Write($" -> [Id:{trabajo.Id}]");
-        CAnimal mas=trabajo.Mascota;
-        System.Console.WriteLine(mas.Id);
+          CAnimal encontrado=trabajo.Mascota;
+          return encontrado;
         }
+        
       }
-      System.Console.WriteLine("");
+      return null;
     }
 
   }
