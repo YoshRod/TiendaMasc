@@ -119,9 +119,7 @@ namespace TiendaMas
               int tipo;
               do
               {
-                Console.WriteLine("Tipo de mascota a buscar");
-                Console.WriteLine("1- Perro 2-Gato 3-Ave (4-Salir)");
-                tipo = CTool.EvaluaNumeroInt();
+                tipo = TipoMascota();
               } while (tipo < 0 && tipo > 5);
               if (tipo != 4)
               {
@@ -130,23 +128,36 @@ namespace TiendaMas
                   case 1:
                     if (listaPerros.EstaVacia() != true)
                     {
-                      System.Console.WriteLine("Id a buscar");
+                      Console.WriteLine("Id a buscar");
                       int id=CTool.EvaluaNumeroInt();
-                      listaPerros.MuestraAnimal(id);
+                      CAnimal encontrado=listaPerros.MuestraAnimal(id);
+                      if(encontrado!=null)encontrado.MostarDatos();
+                      else Console.WriteLine("No se encontro coincidencia");
+                      Console.ReadKey();
                     }
                     else Console.WriteLine("Aun no hay registros");
                     break;
                   case 2:
                     if (listaGatos.EstaVacia() != true)
                     {
-                      listaGatos.Transversa();
+                      Console.WriteLine("Id a buscar");
+                      int id=CTool.EvaluaNumeroInt();
+                      CAnimal encontrado=listaGatos.MuestraAnimal(id);
+                      if(encontrado!=null)encontrado.MostarDatos();
+                      else Console.WriteLine("No se encontro coincidencia");
+                      Console.ReadKey();
                     }
                     else Console.WriteLine("Aun no hay registros");
                     break;
                   case 3:
                     if (listaAves.EstaVacia() != true)
                     {
-                      listaAves.Transversa();
+                      Console.WriteLine("Id a buscar");
+                      int id=CTool.EvaluaNumeroInt();
+                      CAnimal encontrado=listaAves.MuestraAnimal(id);
+                      if(encontrado!=null)encontrado.MostarDatos();
+                      else Console.WriteLine("No se encontro coincidencia");
+                      Console.ReadKey();
                     }
                     else Console.WriteLine("Aun no hay registros");
                     break;
@@ -156,7 +167,9 @@ namespace TiendaMas
 
               break;
             case 3:
-              Console.WriteLine("3- Editar Mascota");
+            Console.WriteLine("==================================");
+              Console.WriteLine("Administrador - Editar Mascota");
+              Console.WriteLine("==================================");
               break;
             case 4:
               Console.WriteLine("4- Eliminar Mascota");
@@ -172,10 +185,12 @@ namespace TiendaMas
 
     }
 
-
-    public static void BuscarMascota()
-    {
-
+    public static int TipoMascota(){
+      int tipo;
+      Console.WriteLine("Tipo de mascota a buscar");
+                Console.WriteLine("1- Perro 2-Gato 3-Ave (4-Salir)");
+                tipo = CTool.EvaluaNumeroInt();
+                return tipo;
     }
 
     private static CAnimal CreaMascota()
@@ -186,10 +201,9 @@ namespace TiendaMas
       int tipo;
       do
       {
-        Console.WriteLine("¿Que mascota desea agregar?");
-        Console.WriteLine("1- Perro 2-Gato 3-Ave (4-Salir)");
-        tipo = CTool.EvaluaNumeroInt();
-      } while (tipo < 0 && tipo > 5);
+        tipo=TipoMascota();
+      } while (tipo < 5 && tipo > 0);
+      
       //salimos en caso de 4
       if (tipo == 4) return mascota = null;
 
